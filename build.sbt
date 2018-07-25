@@ -3,7 +3,8 @@ import NativePackagerKeys._
 
 assemblySettings
 
-mergeStrategy in assembly <<= (mergeStrategy in assembly) { (old) => {
+mergeStrategy in assembly <<= (mergeStrategy in assembly) { (old) =>
+  {
     case PathList(ps @ _*) if ps.last endsWith ".class" => MergeStrategy.first
     case PathList(ps @ _*) if ps.last endsWith ".properties" => MergeStrategy.first
     case PathList(ps @ _*) if ps.last endsWith ".xml" => MergeStrategy.first
